@@ -83,6 +83,14 @@ nav .pl{flex:none;width:52px;height:34px;border-radius:10px;background:#fff;colo
 .bk{position:absolute;top:10px;right:10px;width:40px;height:40px;z-index:2}
 #user{z-index:8;background:#000}.st{gap:22px}.cell .ic{fill:#fff;stroke:none}
 </style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="One Look">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute"><defs>
@@ -290,6 +298,9 @@ else x={mediaUrl:u,mediaType:mode==="vurl"?"video":"image"};
 await addDoc(collection(D,"videos"),{author:me.username,authorUid:me.uid,avatar:me.avatar,caption:$("#cap").value.trim(),tags:$("#tg").value.trim(),likesCount:0,likedBy:[],comments:[],views:0,createdAt:serverTimestamp(),...x});
 $("#us").classList.add("hide");$("#fi").value=$("#ur").value=$("#cap").value=$("#tg").value="";pm.textContent="";toast("تم النشر");go2("feed")}
 catch(e){pm.textContent="";saveErr(e,"المنشور")}finally{b.disabled=false}};
+</script>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
 </body>
 </html>
